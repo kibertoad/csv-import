@@ -6,7 +6,9 @@ import {
   toMandatoryInteger,
   toMandatoryString,
   toOptionalBoolean,
-  toOptionalDate, toOptionalFloat, toOptionalInteger,
+  toOptionalDate,
+  toOptionalFloat,
+  toOptionalInteger,
   toOptionalString,
 } from '../lib/mappers'
 
@@ -61,7 +63,7 @@ describe('csvImporter', () => {
           column: 'priority',
           entityField: 'priority',
           mapper: toOptionalBoolean,
-          defaultValue: false
+          defaultValue: false,
         },
       ]
       const result = await loadFromCsv(stream, columnConfig, {
@@ -122,13 +124,13 @@ describe('csvImporter', () => {
           column: 'destinationTraveled',
           entityField: 'destinationTraveled',
           mapper: toOptionalFloat,
-          defaultValue: 0.0
+          defaultValue: 0.0,
         },
         {
           column: 'priority',
           entityField: 'priority',
           mapper: toOptionalBoolean,
-          defaultValue: true
+          defaultValue: true,
         },
       ]
       const result = await loadFromCsv(stream, columnConfig, {
