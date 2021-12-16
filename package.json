@@ -1,0 +1,49 @@
+{
+  "name": "csv-import",
+  "version": "1.0.0",
+  "description": "Library for importing data from CSV files",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "maintainers": [
+    {
+      "name": "Igor Savin",
+      "email": "kibertoad@gmail.com"
+    }
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config=jest.config.json",
+    "test:coverage": "jest --config=jest.config.json --coverage",
+    "lint": "eslint \"lib/**/*.ts\" \"test/**/*.ts\"",
+    "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\" index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "csv-parse": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.14",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "typescript": "4.5.4"
+  },
+  "keywords": [
+    "csv",
+    "import",
+    "fast",
+    "large",
+    "data"
+  ],
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist/*"
+  ]
+}
