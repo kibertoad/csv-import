@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`csvImporter loadEntities correctly loads large file 1`] = `
+Object {
+  "errors": Array [],
+  "isValid": true,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 2`] = `
+Object {
+  "arrival_time": "04:49:00",
+  "departure_time": "04:50:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 8262,
+  "stop_sequence": 1,
+  "tripId": 1,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 3`] = `
+Object {
+  "arrival_time": "15:23:00",
+  "departure_time": "15:23:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 5836,
+  "stop_sequence": 6,
+  "tripId": 716,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 4`] = `
+Object {
+  "arrival_time": "11:38:00",
+  "departure_time": "11:38:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 6083,
+  "stop_sequence": 9,
+  "tripId": 6375,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 5`] = `
+Object {
+  "arrival_time": "11:22:00",
+  "departure_time": "11:22:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 16581,
+  "stop_sequence": 12,
+  "tripId": 11523,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 6`] = `
+Object {
+  "arrival_time": "22:26:00",
+  "departure_time": "22:26:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 6497,
+  "stop_sequence": 31,
+  "tripId": 16273,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 7`] = `
+Object {
+  "arrival_time": "19:22:00",
+  "departure_time": "19:22:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 5086,
+  "stop_sequence": 3,
+  "tripId": 25564,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads large file 8`] = `
+Object {
+  "arrival_time": "06:14:00",
+  "departure_time": "06:14:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 5505,
+  "stop_sequence": 8,
+  "tripId": 25566,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads medium file 1`] = `
+Object {
+  "arrival_time": "04:49:00",
+  "departure_time": "04:50:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": false,
+  "stop_id": 8262,
+  "stop_sequence": 1,
+  "tripId": 1,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads medium file 2`] = `
+Object {
+  "arrival_time": "07:26:00",
+  "departure_time": "07:26:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": true,
+  "stop_id": 7573,
+  "stop_sequence": 8,
+  "tripId": 127,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads medium file 3`] = `
+Object {
+  "arrival_time": "13:22:00",
+  "departure_time": "13:22:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": true,
+  "stop_id": 5156,
+  "stop_sequence": 1,
+  "tripId": 466,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads medium file 4`] = `
+Object {
+  "arrival_time": "13:49:00",
+  "departure_time": "13:49:00",
+  "destinationTraveled": 0,
+  "drop_off_type": 0,
+  "pickup_type": 0,
+  "priority": true,
+  "stop_id": 6487,
+  "stop_sequence": 10,
+  "tripId": 466,
+}
+`;
+
+exports[`csvImporter loadEntities correctly returns errors 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "code": "INVALID_DATE_FORMAT",
+      "column": "arrival_time",
+      "line": 3,
+    },
+    Object {
+      "code": "INVALID_INTEGER_FORMAT",
+      "column": "pickup_type",
+      "line": 3,
+    },
+    Object {
+      "code": "MISSING_MANDATORY_FIELD",
+      "column": "drop_off_type",
+      "line": 4,
+    },
+    Object {
+      "code": "INVALID_BOOLEAN_FORMAT",
+      "column": "priority",
+      "line": 4,
+    },
+    Object {
+      "code": "INVALID_DATE_FORMAT",
+      "column": "arrival_time",
+      "line": 5,
+    },
+    Object {
+      "code": "MISSING_MANDATORY_FIELD",
+      "column": "departure_time",
+      "line": 6,
+    },
+    Object {
+      "code": "MISSING_MANDATORY_FIELD",
+      "column": "trip_id",
+      "line": 8,
+    },
+    Object {
+      "code": "INVALID_DATE_FORMAT",
+      "column": "departure_time",
+      "line": 8,
+    },
+  ],
+  "isValid": false,
+}
+`;
+
+exports[`csvImporter loadEntities correctly returns errors 2`] = `
+Array [
+  Object {
+    "arrival_time": 2011-10-10T00:00:00.000Z,
+    "departure_time": 2011-10-11T00:00:00.000Z,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": 0,
+    "priority": false,
+    "stop_id": 8262,
+    "stop_sequence": 1,
+    "tripId": "a",
+  },
+  Object {
+    "arrival_time": undefined,
+    "departure_time": 2011-10-11T00:00:00.000Z,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": undefined,
+    "priority": undefined,
+    "stop_id": 6650,
+    "stop_sequence": 2,
+    "tripId": "b",
+  },
+  Object {
+    "arrival_time": 2011-10-10T00:00:00.000Z,
+    "departure_time": 2011-10-11T00:00:00.000Z,
+    "destinationTraveled": undefined,
+    "drop_off_type": undefined,
+    "pickup_type": 0,
+    "priority": undefined,
+    "stop_id": 7851,
+    "stop_sequence": 3,
+    "tripId": "c",
+  },
+  Object {
+    "arrival_time": undefined,
+    "departure_time": 2011-10-11T00:00:00.000Z,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": 0,
+    "priority": undefined,
+    "stop_id": 5173,
+    "stop_sequence": 4,
+    "tripId": "d",
+  },
+  Object {
+    "arrival_time": 2011-10-10T00:00:00.000Z,
+    "departure_time": undefined,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": 0,
+    "priority": true,
+    "stop_id": 5175,
+    "stop_sequence": 5,
+    "tripId": "e",
+  },
+  Object {
+    "arrival_time": 2011-10-10T00:00:00.000Z,
+    "departure_time": 2011-10-11T00:00:00.000Z,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": 0,
+    "priority": undefined,
+    "stop_id": 10359,
+    "stop_sequence": 6,
+    "tripId": "f",
+  },
+  Object {
+    "arrival_time": 2011-10-10T00:00:00.000Z,
+    "departure_time": undefined,
+    "destinationTraveled": undefined,
+    "drop_off_type": 0,
+    "pickup_type": 0,
+    "priority": undefined,
+    "stop_id": 9738,
+    "stop_sequence": 7,
+    "tripId": undefined,
+  },
+]
+`;

@@ -1,0 +1,8 @@
+﻿trip_id,arrival_time,departure_time,stop_id,stop_sequence,pickup_type,drop_off_type,destinationTraveled,priority
+a,2011-10-10,2011-10-11,8262,1,0,0,,false
+b,kar,2011-10-11,6650,2,a,0,,
+c,2011-10-10,2011-10-11,7851,3,0,,,yes
+d,2011-20-20,2011-10-11,5173,4,0,0,,
+e,2011-10-10,,5175,5,0,0,,true
+f,2011-10-10,2011-10-11,10359,6,0,0,,
+,2011-10-10,2014-25-24,9738,7,0,0,,

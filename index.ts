@@ -1,4 +1,4 @@
-export { loadEntities } from './lib/csvImporter'
+export { loadFromCsv } from './lib/csvImporter'
 export {
   toOptionalString,
   toMandatoryString,

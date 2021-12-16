@@ -1,12 +1,12 @@
 import { resolve } from 'path'
 import { getFileStream } from './utils/fileUtils'
-import { ColumnDefinitions, loadEntities } from '../lib/csvImporter'
+import { ColumnDefinitions, loadFromCsv } from '../lib/csvImporter'
 import {
   toMandatoryDate,
   toMandatoryInteger,
   toMandatoryString,
   toOptionalBoolean,
-  toOptionalDate,
+  toOptionalDate, toOptionalFloat, toOptionalInteger,
   toOptionalString,
 } from '../lib/mappers'
 
@@ -24,12 +24,12 @@ describe('csvImporter', () => {
         {
           column: 'arrival_time',
           entityField: 'arrival_time',
-          mapper: toOptionalDate,
+          mapper: toOptionalString,
         },
         {
           column: 'departure_time',
           entityField: 'departure_time',
-          mapper: toMandatoryDate,
+          mapper: toMandatoryString,
         },
         {
           column: 'stop_id',
@@ -54,15 +54,17 @@ describe('csvImporter', () => {
         {
           column: 'destinationTraveled',
           entityField: 'destinationTraveled',
-          mapper: toOptionalString,
+          mapper: toOptionalInteger,
+          defaultValue: 0,
         },
         {
           column: 'priority',
           entityField: 'priority',
           mapper: toOptionalBoolean,
+          defaultValue: false
         },
       ]
-      const result = await loadEntities(stream, columnConfig, {
+      const result = await loadFromCsv(stream, columnConfig, {
         fromLine: 2,
       })
       console.log(`Import time: ${result.importTime}`)
@@ -89,12 +91,12 @@ describe('csvImporter', () => {
         {
           column: 'arrival_time',
           entityField: 'arrival_time',
-          mapper: toOptionalDate,
+          mapper: toOptionalString,
         },
         {
           column: 'departure_time',
           entityField: 'departure_time',
-          mapper: toMandatoryDate,
+          mapper: toMandatoryString,
         },
         {
           column: 'stop_id',
@@ -119,15 +121,17 @@ describe('csvImporter', () => {
         {
           column: 'destinationTraveled',
           entityField: 'destinationTraveled',
-          mapper: toOptionalString,
+          mapper: toOptionalFloat,
+          defaultValue: 0.0
         },
         {
           column: 'priority',
           entityField: 'priority',
           mapper: toOptionalBoolean,
+          defaultValue: true
         },
       ]
-      const result = await loadEntities(stream, columnConfig, {
+      const result = await loadFromCsv(stream, columnConfig, {
         fromLine: 2,
       })
       console.log(`Import time: ${result.importTime}`)
@@ -188,7 +192,7 @@ describe('csvImporter', () => {
           mapper: toOptionalBoolean,
         },
       ]
-      const result = await loadEntities(stream, columnConfig, {
+      const result = await loadFromCsv(stream, columnConfig, {
         fromLine: 2,
       })
       console.log(`Import time: ${result.importTime}`)

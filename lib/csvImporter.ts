@@ -18,7 +18,7 @@ export type ImportResult<T> = {
   importTime: number
 }
 
-export function loadEntities<T extends Record<string, any>>(
+export function loadFromCsv<T extends Record<string, any>>(
   stream: Readable,
   columnConfig: ColumnDefinitions,
   csvOptions: Omit<Options, 'columns'>
