@@ -1,4 +1,10 @@
 # csv-import
+
+[![NPM Version][npm-image]][npm-url]
+[![Build Status](https://github.com/kibertoad/csv-import/workflows/ci/badge.svg)](https://github.com/kibertoad/csv-import/actions)
+[![Coverage Status](https://coveralls.io/repos/kibertoad/csv-import/badge.svg?branch=main)](https://coveralls.io/r/kibertoad/csv-import?branch=main)
+
+
 Node.js library for importing data from CSV files
 
 ## Getting starte
@@ -82,3 +88,6 @@ Next, describe your import configuration:
   expect(result.data.length).toEqual(5040)
   expect(result.data[0]).toMatchSnapshot()
 ```
+
+[npm-image]: https://img.shields.io/npm/v/csv-import.svg
+[npm-url]: https://npmjs.org/package/csv-import
