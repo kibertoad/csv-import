@@ -7,7 +7,7 @@
 
 Node.js library for importing data from CSV files
 
-## Getting starte
+## Getting started
 
 First install the package:
 
