@@ -2,8 +2,14 @@
 
 exports[`csvImporter loadEntities correctly loads large file 1`] = `
 Object {
-  "errors": Array [],
-  "isValid": true,
+  "errors": Array [
+    Object {
+      "code": "INVALID_BOOLEAN_FORMAT",
+      "column": "priority",
+      "line": 2,
+    },
+  ],
+  "isValid": false,
 }
 `;
 
@@ -14,7 +20,7 @@ Object {
   "destinationTraveled": 0,
   "drop_off_type": 0,
   "pickup_type": 0,
-  "priority": false,
+  "priority": undefined,
   "stop_id": 8262,
   "stop_sequence": 1,
   "tripId": 1,
@@ -105,6 +111,23 @@ Object {
 }
 `;
 
+exports[`csvImporter loadEntities correctly loads large file stopsWithErrors 1`] = `
+Object {
+  "code": 123,
+  "description": "d",
+  "geom": undefined,
+  "hasWifi": undefined,
+  "isActive": true,
+  "latitude": 154.82865,
+  "longitude": -180.3641,
+  "managerId": "TRUE",
+  "name": "Skirgiškės",
+  "stopId": "10310",
+  "stopTypeId": "suburbTransferStop",
+  "url": "https://www.stops.lt/vilnius/index.html#stop/2300",
+}
+`;
+
 exports[`csvImporter loadEntities correctly loads medium file 1`] = `
 Object {
   "arrival_time": "04:49:00",
@@ -112,7 +135,7 @@ Object {
   "destinationTraveled": 0,
   "drop_off_type": 0,
   "pickup_type": 0,
-  "priority": false,
+  "priority": undefined,
   "stop_id": 8262,
   "stop_sequence": 1,
   "tripId": 1,
@@ -165,6 +188,11 @@ exports[`csvImporter loadEntities correctly returns errors 1`] = `
 Object {
   "errors": Array [
     Object {
+      "code": "INVALID_BOOLEAN_FORMAT",
+      "column": "priority",
+      "line": 2,
+    },
+    Object {
       "code": "INVALID_DATE_FORMAT",
       "column": "arrival_time",
       "line": 3,
@@ -195,6 +223,11 @@ Object {
       "line": 6,
     },
     Object {
+      "code": "INVALID_BOOLEAN_FORMAT",
+      "column": "priority",
+      "line": 6,
+    },
+    Object {
       "code": "MISSING_MANDATORY_FIELD",
       "column": "trip_id",
       "line": 8,
@@ -217,7 +250,7 @@ Array [
     "destinationTraveled": undefined,
     "drop_off_type": 0,
     "pickup_type": 0,
-    "priority": false,
+    "priority": undefined,
     "stop_id": 8262,
     "stop_sequence": 1,
     "tripId": "a",
@@ -261,7 +294,7 @@ Array [
     "destinationTraveled": undefined,
     "drop_off_type": 0,
     "pickup_type": 0,
-    "priority": true,
+    "priority": undefined,
     "stop_id": 5175,
     "stop_sequence": 5,
     "tripId": "e",

@@ -1,0 +1,7 @@
+﻿stopId,code,name,description,latitude,longitude,url,stopTypeId,hasWifi,managerId,geom,isActive
+,123,Kaimelio žiedas,d,-154.73141,279.1234,https://www.stops.lt/vilnius/index.html#stop/3890,mainCityStop,FALSE,manager,,TRUE
+10310,123,Skirgiškės,d,154.82865,-180.3641,https://www.stops.lt/vilnius/index.html#stop/2300,suburbTransferStop,TRUE,manager,,FALSE
+10310,,Kairėnai,d,54.73664,25.4021,https://www.stops.lt/vilnius/index.html#stop/3526,mainCityStop,FALSE,manager,,1
+9560,,AP vartai,,54.7212,25.29556,https://www.stops.lt/vilnius/index.html#stop/0018,mainCityStop,,manager,,123
+16305,,Kairėnai,,54.73646,25.40379,https://www.stops.lt/vilnius/index.html#stop/1015,mainCityStop,1,manager,,0
+9102,,Bijūnų st.,,54.6674,25.21588,https://www.stops.lt/vilnius/index.html#stop/1631,mainCityStop,FALSE,manager,,TRUE

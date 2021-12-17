@@ -107,7 +107,7 @@ export function toOptionalFloat(
   return defaultValue
 }
 
-export function toOptionalBoolean(
+export function toMandatoryBoolean(
   column: string,
   input: string,
   validationContext: ValidationContext,
@@ -118,6 +118,25 @@ export function toOptionalBoolean(
       return true
     }
     if (input.toLowerCase() === 'false' || input === '0') {
+      return false
+    }
+    validationContext.addError(column, ErrorCodes.INVALID_BOOLEAN_FORMAT)
+    return undefined
+  }
+  return defaultValue
+}
+
+export function toOptionalBoolean(
+  column: string,
+  input: string,
+  validationContext: ValidationContext,
+  defaultValue: '' | boolean | undefined
+): boolean | undefined | '' {
+  if (input.length) {
+    if (input == '1') {
+      return true
+    }
+    if (!input) {
       return false
     }
     validationContext.addError(column, ErrorCodes.INVALID_BOOLEAN_FORMAT)
@@ -155,6 +174,23 @@ export function toMandatoryDate(
       return undefined
     }
     return value
+  }
+  validationContext.addError(column, ErrorCodes.MISSING_MANDATORY_FIELD)
+  return undefined
+}
+
+export function toMandatoryTime(
+  column: string,
+  input: string,
+  validationContext: ValidationContext
+): string | undefined {
+  if (input.length) {
+    const value = new Date(input)
+    if (isNaN(value.getTime())) {
+      validationContext.addError(column, ErrorCodes.INVALID_DATE_FORMAT)
+      return undefined
+    }
+    return value.toISOString().slice(11, 19)
   }
   validationContext.addError(column, ErrorCodes.MISSING_MANDATORY_FIELD)
   return undefined
