@@ -179,19 +179,3 @@ export function toMandatoryDate(
   return undefined
 }
 
-export function toMandatoryTime(
-  column: string,
-  input: string,
-  validationContext: ValidationContext
-): string | undefined {
-  if (input.length) {
-    const value = new Date(input)
-    if (isNaN(value.getTime())) {
-      validationContext.addError(column, ErrorCodes.INVALID_DATE_FORMAT)
-      return undefined
-    }
-    return value.toISOString().slice(11, 19)
-  }
-  validationContext.addError(column, ErrorCodes.MISSING_MANDATORY_FIELD)
-  return undefined
-}
