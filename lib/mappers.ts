@@ -178,4 +178,3 @@ export function toMandatoryDate(
   validationContext.addError(column, ErrorCodes.MISSING_MANDATORY_FIELD)
   return undefined
 }
-

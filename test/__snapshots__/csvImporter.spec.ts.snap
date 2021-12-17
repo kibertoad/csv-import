@@ -111,23 +111,6 @@ Object {
 }
 `;
 
-exports[`csvImporter loadEntities correctly loads large file stopsWithErrors 1`] = `
-Object {
-  "code": 123,
-  "description": "d",
-  "geom": undefined,
-  "hasWifi": undefined,
-  "isActive": true,
-  "latitude": 154.82865,
-  "longitude": -180.3641,
-  "managerId": "TRUE",
-  "name": "Skirgiškės",
-  "stopId": "10310",
-  "stopTypeId": "suburbTransferStop",
-  "url": "https://www.stops.lt/vilnius/index.html#stop/2300",
-}
-`;
-
 exports[`csvImporter loadEntities correctly loads medium file 1`] = `
 Object {
   "arrival_time": "04:49:00",
