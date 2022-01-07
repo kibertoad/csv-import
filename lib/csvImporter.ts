@@ -21,7 +21,8 @@ export type ImportResult<T> = {
 export function loadFromCsv<T extends Record<string, any>>(
   stream: Readable,
   columnConfig: ColumnDefinitions,
-  csvOptions: Omit<Options, 'columns'>
+  csvOptions: Omit<Options, 'columns'>,
+  delimiter: string
 ): Promise<ImportResult<T>> {
   return new Promise((resolve, reject) => {
     const startTime = new Date()
@@ -30,11 +31,12 @@ export function loadFromCsv<T extends Record<string, any>>(
     })
     const result: T[] = []
     const columns = columnConfig.map((column) => column.column)
+
     const parser = parse({
       ...csvOptions,
       columns,
+      delimiter,
     })
-
     parser.on('readable', function () {
       let row
       while ((row = parser.read()) !== null) {
