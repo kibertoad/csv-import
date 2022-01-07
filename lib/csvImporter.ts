@@ -22,8 +22,13 @@ export function loadFromCsv<T extends Record<string, any>>(
   stream: Readable,
   columnConfig: ColumnDefinitions,
   csvOptions: Omit<Options, 'columns'>,
-  delimiter: string
+  delimiter?: string
 ): Promise<ImportResult<T>> {
+  const x = csvOptions.delimiter
+  let csvOprionsWithDelimiter = csvOptions
+  if (delimiter) {
+    csvOprionsWithDelimiter = { ...csvOptions, delimiter }
+  }
   return new Promise((resolve, reject) => {
     const startTime = new Date()
     const validationContext = new ValidationContext({
@@ -31,11 +36,9 @@ export function loadFromCsv<T extends Record<string, any>>(
     })
     const result: T[] = []
     const columns = columnConfig.map((column) => column.column)
-
     const parser = parse({
-      ...csvOptions,
+      ...csvOprionsWithDelimiter,
       columns,
-      delimiter,
     })
     parser.on('readable', function () {
       let row

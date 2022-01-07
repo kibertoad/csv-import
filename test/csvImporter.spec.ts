@@ -67,15 +67,9 @@ describe('csvImporter', () => {
           defaultValue: false,
         },
       ]
-      const delimiter = ','
-      const result = await loadFromCsv(
-        stream,
-        columnConfig,
-        {
-          fromLine: 2,
-        },
-        delimiter
-      )
+      const result = await loadFromCsv(stream, columnConfig, {
+        fromLine: 2,
+      })
       console.log(`Import time: ${result.importTime}`)
       expect(result.validationResult).toMatchSnapshot()
       expect(result.data.length).toEqual(512781)
@@ -140,15 +134,9 @@ describe('csvImporter', () => {
           defaultValue: true,
         },
       ]
-      const delimiter = ','
-      const result = await loadFromCsv(
-        stream,
-        columnConfig,
-        {
-          fromLine: 2,
-        },
-        delimiter
-      )
+      const result = await loadFromCsv(stream, columnConfig, {
+        fromLine: 2,
+      })
       console.log(`Import time: ${result.importTime}`)
       expect(result.data.length).toEqual(5040)
       expect(result.data[0]).toMatchSnapshot()
@@ -207,15 +195,9 @@ describe('csvImporter', () => {
           mapper: toOptionalBoolean,
         },
       ]
-      const delimiter = ','
-      const result = await loadFromCsv(
-        stream,
-        columnConfig,
-        {
-          fromLine: 2,
-        },
-        delimiter
-      )
+      const result = await loadFromCsv(stream, columnConfig, {
+        fromLine: 2,
+      })
       console.log(`Import time: ${result.importTime}`)
       expect(result.validationResult).toMatchSnapshot()
       expect(result.data.length).toEqual(7)
