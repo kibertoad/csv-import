@@ -170,11 +170,14 @@ Object {
 }
 `;
 
-exports[`csvImporter loadEntities correctly loads medium file if columns separated by ; 2`] = `undefined`;
-
-exports[`csvImporter loadEntities correctly loads medium file if columns separated by ; 3`] = `undefined`;
-
-exports[`csvImporter loadEntities correctly loads medium file if columns separated by ; 4`] = `undefined`;
+exports[`csvImporter loadEntities correctly loads medium file if columns separated by ; 2`] = `
+Object {
+  "arrival_time": "04:53:00",
+  "departure_time": "04:53:00",
+  "stop_id": 6650.856,
+  "tripId": 1,
+}
+`;
 
 exports[`csvImporter loadEntities correctly returns errors 1`] = `
 Object {
