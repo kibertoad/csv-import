@@ -161,6 +161,78 @@ Object {
 }
 `;
 
+exports[`csvImporter loadEntities correctly loads string stream 1`] = `
+Object {
+  "errors": Array [],
+  "isValid": true,
+}
+`;
+
+exports[`csvImporter loadEntities correctly loads string stream 2`] = `
+Array [
+  Object {
+    "azimuth": 260,
+    "deflectionInSeconds": 0,
+    "latitude": 54.64424,
+    "longitude": 25.20696,
+    "routeShortName": "51",
+    "speed": 0,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1314,
+    "vehicleGarageNumber": "7015",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 210,
+    "deflectionInSeconds": 0,
+    "latitude": 54.70325,
+    "longitude": 25.17336,
+    "routeShortName": "4G",
+    "speed": 37,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1315,
+    "vehicleGarageNumber": "8048",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 246,
+    "deflectionInSeconds": 5,
+    "latitude": 54.68304,
+    "longitude": 25.20286,
+    "routeShortName": "116",
+    "speed": 30,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1339,
+    "vehicleGarageNumber": "7044",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 80,
+    "deflectionInSeconds": 114,
+    "latitude": 54.67497,
+    "longitude": 25.29422,
+    "routeShortName": "31",
+    "speed": 38,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1347,
+    "vehicleGarageNumber": "3039",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 24,
+    "deflectionInSeconds": -66,
+    "latitude": 54.69601,
+    "longitude": 25.22013,
+    "routeShortName": "16",
+    "speed": 46,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1329,
+    "vehicleGarageNumber": "2691",
+    "vehicleTypeName": "trolleybus",
+  },
+]
+`;
+
 exports[`csvImporter loadEntities correctly returns errors 1`] = `
 Object {
   "errors": Array [
@@ -287,6 +359,94 @@ Array [
     "stop_id": 9738,
     "stop_sequence": 7,
     "tripId": undefined,
+  },
+]
+`;
+
+exports[`csvImporter loadEntities correctly returns string stream errors 1`] = `
+Object {
+  "errors": Array [
+    Object {
+      "code": "INVALID_FLOAT_FORMAT",
+      "column": "longitude",
+      "line": 2,
+    },
+    Object {
+      "code": "INVALID_DATE_FORMAT",
+      "column": "time",
+      "line": 3,
+    },
+    Object {
+      "code": "INVALID_INTEGER_FORMAT",
+      "column": "speed",
+      "line": 5,
+    },
+  ],
+  "isValid": false,
+}
+`;
+
+exports[`csvImporter loadEntities correctly returns string stream errors 2`] = `
+Array [
+  Object {
+    "azimuth": 260,
+    "deflectionInSeconds": 0,
+    "latitude": 54.64424,
+    "longitude": undefined,
+    "routeShortName": "51",
+    "speed": 0,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1314,
+    "vehicleGarageNumber": "7015",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 210,
+    "deflectionInSeconds": 0,
+    "latitude": 54.70325,
+    "longitude": 25.17336,
+    "routeShortName": "4G",
+    "speed": 37,
+    "time": undefined,
+    "tripStartInMinutes": 1315,
+    "vehicleGarageNumber": "8048",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 246,
+    "deflectionInSeconds": 5,
+    "latitude": 54.68304,
+    "longitude": 25.20286,
+    "routeShortName": "116",
+    "speed": 30,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1339,
+    "vehicleGarageNumber": "7044",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 80,
+    "deflectionInSeconds": 114,
+    "latitude": 54.67497,
+    "longitude": 25.29422,
+    "routeShortName": "31",
+    "speed": undefined,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1347,
+    "vehicleGarageNumber": "3039",
+    "vehicleTypeName": "bus",
+  },
+  Object {
+    "azimuth": 24,
+    "deflectionInSeconds": -66,
+    "latitude": 54.69601,
+    "longitude": 25.22013,
+    "routeShortName": "16",
+    "speed": 46,
+    "time": 2021-12-13T17:30:28.000Z,
+    "tripStartInMinutes": 1329,
+    "vehicleGarageNumber": "2691",
+    "vehicleTypeName": "trolleybus",
   },
 ]
 `;

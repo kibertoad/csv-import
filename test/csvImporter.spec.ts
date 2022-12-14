@@ -3,6 +3,7 @@ import { getFileStream } from './utils/fileUtils'
 import { ColumnDefinitions, loadFromCsv } from '../lib/csvImporter'
 import {
   toMandatoryDate,
+  toMandatoryFloat,
   toMandatoryInteger,
   toMandatoryString,
   toOptionalBoolean,
@@ -200,6 +201,138 @@ describe('csvImporter', () => {
       console.log(`Import time: ${result.importTime}`)
       expect(result.validationResult).toMatchSnapshot()
       expect(result.data.length).toEqual(7)
+      expect(result.data).toMatchSnapshot()
+    })
+
+    it('correctly loads string stream', async () => {
+      const input =
+        'vehicleGarageNumber,longitude,latitude,speed,azimuth,tripStartInMinutes,deflectionInSeconds,time,vehicleType,routeShortName\n7015,25.20696,54.64424,0,260,1314,0,2021-12-13 19:30:28,bus,51\n8048,25.17336,54.70325,37,210,1315,0,2021-12-13 19:30:28,bus,4G\n7044,25.20286,54.68304,30,246,1339,5,2021-12-13 19:30:28,bus,116\n3039,25.29422,54.67497,38,80,1347,114,2021-12-13 19:30:28,bus,31\n2691,25.22013,54.69601,46,24,1329,-66,2021-12-13 19:30:28,trolleybus,16\n'
+
+      const columnConfig: ColumnDefinitions = [
+        {
+          column: 'vehicleGarageNumber',
+          entityField: 'vehicleGarageNumber',
+          mapper: toMandatoryString,
+        },
+        {
+          column: 'longitude',
+          entityField: 'longitude',
+          mapper: toMandatoryFloat,
+        },
+        {
+          column: 'latitude',
+          entityField: 'latitude',
+          mapper: toMandatoryFloat,
+        },
+        {
+          column: 'speed',
+          entityField: 'speed',
+          mapper: toMandatoryInteger,
+        },
+        {
+          column: 'azimuth',
+          entityField: 'azimuth',
+          mapper: toMandatoryInteger,
+        },
+        {
+          column: 'tripStartInMinutes',
+          entityField: 'tripStartInMinutes',
+          mapper: toOptionalInteger,
+        },
+        {
+          column: 'deflectionInSeconds',
+          entityField: 'deflectionInSeconds',
+          mapper: toOptionalInteger,
+        },
+        {
+          column: 'time',
+          entityField: 'time',
+          mapper: toMandatoryDate,
+        },
+        {
+          column: 'vehicleTypeName',
+          entityField: 'vehicleTypeName',
+          mapper: toMandatoryString,
+        },
+
+        {
+          column: 'routeShortName',
+          entityField: 'routeShortName',
+          mapper: toMandatoryString,
+        },
+      ]
+      const result = await loadFromCsv(input, columnConfig, {
+        fromLine: 2,
+      })
+      console.log(`Import time: ${result.importTime}`)
+      expect(result.validationResult).toMatchSnapshot()
+      expect(result.data.length).toEqual(5)
+      expect(result.data).toMatchSnapshot()
+    })
+
+    it('correctly returns string stream errors', async () => {
+      const input =
+        'vehicleGarageNumber,longitude,latitude,speed,azimuth,tripStartInMinutes,deflectionInSeconds,time,vehicleType,routeShortName\n7015,long,54.64424,0,260,1314,0,2021-12-13 19:30:28,bus,51\n8048,25.17336,54.70325,37,210,1315,0,datt,bus,4G\n7044,25.20286,54.68304,30,246,1339,5,2021-12-13 19:30:28,bus,116\n3039,25.29422,54.67497,speed,80,1347,114,2021-12-13 19:30:28,bus,31\n2691,25.22013,54.69601,46,24,1329,-66,2021-12-13 19:30:28,trolleybus,16\n'
+
+      const columnConfig: ColumnDefinitions = [
+        {
+          column: 'vehicleGarageNumber',
+          entityField: 'vehicleGarageNumber',
+          mapper: toMandatoryString,
+        },
+        {
+          column: 'longitude',
+          entityField: 'longitude',
+          mapper: toMandatoryFloat,
+        },
+        {
+          column: 'latitude',
+          entityField: 'latitude',
+          mapper: toMandatoryFloat,
+        },
+        {
+          column: 'speed',
+          entityField: 'speed',
+          mapper: toMandatoryInteger,
+        },
+        {
+          column: 'azimuth',
+          entityField: 'azimuth',
+          mapper: toMandatoryInteger,
+        },
+        {
+          column: 'tripStartInMinutes',
+          entityField: 'tripStartInMinutes',
+          mapper: toOptionalInteger,
+        },
+        {
+          column: 'deflectionInSeconds',
+          entityField: 'deflectionInSeconds',
+          mapper: toOptionalInteger,
+        },
+        {
+          column: 'time',
+          entityField: 'time',
+          mapper: toMandatoryDate,
+        },
+        {
+          column: 'vehicleTypeName',
+          entityField: 'vehicleTypeName',
+          mapper: toMandatoryString,
+        },
+
+        {
+          column: 'routeShortName',
+          entityField: 'routeShortName',
+          mapper: toMandatoryString,
+        },
+      ]
+      const result = await loadFromCsv(input, columnConfig, {
+        fromLine: 2,
+      })
+      console.log(`Import time: ${result.importTime}`)
+      expect(result.validationResult).toMatchSnapshot()
+      expect(result.data.length).toEqual(5)
       expect(result.data).toMatchSnapshot()
     })
   })
