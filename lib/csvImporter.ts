@@ -45,7 +45,7 @@ export function loadFromCsv<T extends Record<string, any>>(
       let row
       while ((row = parser.read()) !== null) {
         const entity: Record<string, any> = {}
-        for (let i = 0; i < columnConfig.length; i++) {
+        for (var i = 0; i < columnConfig.length; i++) {
           const columnConfigEntry = columnConfig[i]
           entity[columnConfigEntry.entityField] = columnConfigEntry.mapper(
             columnConfigEntry.column,
