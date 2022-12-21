@@ -1,6 +1,6 @@
 {
   "name": "csv-import",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Library for importing data from CSV files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
