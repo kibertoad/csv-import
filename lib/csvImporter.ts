@@ -19,7 +19,7 @@ export type ImportResult<T> = {
 }
 
 export function loadFromCsv<T extends Record<string, any>>(
-  stream: Readable,
+  stream: Readable | Buffer | string,
   columnConfig: ColumnDefinitions,
   csvOptions: Omit<Options, 'columns'>
 ): Promise<ImportResult<T>> {
@@ -30,12 +30,18 @@ export function loadFromCsv<T extends Record<string, any>>(
     })
     const result: T[] = []
     const columns = columnConfig.map((column) => column.column)
-    const parser = parse({
-      ...csvOptions,
-      columns,
-    })
+    const parser =
+      stream instanceof Readable
+        ? parse({
+            ...csvOptions,
+            columns,
+          })
+        : parse(stream, {
+            ...csvOptions,
+            columns,
+          })
 
-    parser.on('readable', function () {
+    parser.on('readable', () => {
       let row
       while ((row = parser.read()) !== null) {
         const entity: Record<string, any> = {}
@@ -52,10 +58,10 @@ export function loadFromCsv<T extends Record<string, any>>(
         validationContext.nextRow()
       }
     })
-    parser.on('error', function (err) {
+    parser.on('error', (err) => {
       reject(err)
     })
-    parser.on('end', function () {
+    parser.on('end', () => {
       const endDate = new Date()
       resolve({
         data: result,
@@ -63,6 +69,9 @@ export function loadFromCsv<T extends Record<string, any>>(
         importTime: endDate.getTime() - startTime.getTime(),
       })
     })
-    stream.pipe(parser)
+
+    if (stream instanceof Readable) {
+      stream.pipe(parser)
+    }
   })
 }
