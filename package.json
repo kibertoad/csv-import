@@ -22,7 +22,7 @@
     "csv-parse": "^5.3.3"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.2.5",
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
